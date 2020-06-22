@@ -11,7 +11,7 @@ from invoke import task
 from invoke.exceptions import Exit
 from subprocess import check_output, CalledProcessError
 
-from .utils import bin_name, get_gopath, get_build_flags, REPO_PATH, get_version, get_git_branch_name, get_go_version, get_git_commit, get_version_numeric_only
+from .utils import bin_name, get_build_flags, REPO_PATH, get_version, get_git_branch_name, get_go_version, get_git_commit, get_version_numeric_only
 from .build_tags import get_default_build_tags
 
 BIN_DIR = os.path.join(".", "bin", "system-probe")
@@ -38,7 +38,7 @@ def build(ctx, race=False, go_version=None, incremental_build=False, major_versi
 
     ldflags, gcflags, env = get_build_flags(ctx, major_version=major_version, python_runtimes=python_runtimes)
 
-     # generate windows resources
+    # generate windows resources
     if sys.platform == 'win32':
         windres_target = "pe-x86-64"
         if arch == "x86":

@@ -5,14 +5,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"time"
 	"github.com/DataDog/datadog-agent/pkg/process/config"
 	"github.com/DataDog/datadog-agent/pkg/process/util"
+	"time"
 
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/debug"
 	"golang.org/x/sys/windows/svc/eventlog"
-
 )
 
 var elog debug.Log
@@ -32,14 +31,14 @@ func main() {
 		}
 		if !isIntSess {
 			runService(false)
-			return;
+			return
 		}
 	}
 	// Handles signals, which tells us whether we should exit.
 	exit := make(chan struct{})
 	go util.HandleSignals(exit)
 	runAgent(exit)
-	
+
 }
 
 func runCheck(cfg *config.AgentConfig) {

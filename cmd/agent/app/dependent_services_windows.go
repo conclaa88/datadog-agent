@@ -39,7 +39,7 @@ var subservices = []Servicedef{
 		serviceName: "datadog-process-agent",
 		serviceInit: processInit,
 	},
-    {
+	{
 		name:        "sysprobe",
 		configKey:   "system_probe_config.enabled",
 		serviceName: "datadog-system-probe",
